@@ -25,7 +25,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--cream); font-family: var(--body); -webkit-font-smoothing: antialiased; }
-body::after { content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: .028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.[...]" ); }
+body::after { content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: .028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.[...]"); }
 body.modal-open { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
@@ -38,17 +38,10 @@ img, svg { display: block; max-width: 100%; }
 .site-header { position: sticky; top: 0; z-index: 30; background: rgba(15,27,58,.95); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); }
 .nav-wrap { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font: 800 1.02rem/1 var(--display); letter-spacing: -.035em; white-space: nowrap; color: var(--ink); }
-.brand-mark { position: relative; width: 30px; height: 24px; display: inline-block; border: 2px solid var(--accent-cyan); border-radius: 8px; background: linear-gradient(135deg, var(--accent-blue)[...]; }
-.brand-mark::before { content: ""; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-cyan); top: -8px; right: 3px; box-shadow: -8px 16px 0 var(--accent-blue[...] ; }
+.brand-mark { position: relative; width: 30px; height: 24px; display: inline-block; border: 2px solid var(--accent-cyan); border-radius: 8px; background: linear-gradient(135deg, var(--accent-blue)[...]
+.brand-mark::before { content: ""; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-cyan); top: -8px; right: 3px; box-shadow: -8px 16px 0 var(--accent-blue[...]
 .brand-mark::after { content: ""; position: absolute; width: 12px; height: 2px; background: var(--accent-cyan); top: 9px; left: 5px; }
 .brand small { color: var(--accent-cyan); font: 500 .58rem var(--mono); letter-spacing: .06em; }
-
-/* Smaller logo: applies to the site logo image and any image inside .brand */
-.brand img, .site-logo {
-  height: 40px;
-  width: auto;
-}
-
 .nav-links { display: flex; align-items: center; gap: 28px; font-size: .86rem; font-weight: 700; color: var(--ink); }
 .nav-links > a:not(.nav-cta) { position: relative; }
 .nav-links > a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -8px; height: 2px; background: var(--accent-cyan); transition: right .2s ease; }
@@ -91,7 +84,7 @@ img, svg { display: block; max-width: 100%; }
 .orbit-grid::before, .orbit-grid::after { content: ""; position: absolute; border: inherit; border-radius: inherit; }
 .orbit-grid::before { inset: 17%; }
 .orbit-grid::after { inset: 36%; background: var(--accent-cyan); opacity: .1; }
-.orbit-chip { position: absolute; width: 98px; height: 42px; display: grid; place-items: center; border: 1px solid var(--accent-cyan); border-radius: 10px; background: var(--paper); font: 500 .65r[...] ; }
+.orbit-chip { position: absolute; width: 98px; height: 42px; display: grid; place-items: center; border: 1px solid var(--accent-cyan); border-radius: 10px; background: var(--paper); font: 500 .65r[...]
 .orbit-chip.one { top: 11%; left: 12%; transform: rotate(-6deg); }
 .orbit-chip.two { right: 4%; bottom: 28%; transform: rotate(7deg); }
 
@@ -109,7 +102,7 @@ img, svg { display: block; max-width: 100%; }
 .dark .lede { color: var(--muted); }
 
 .category-rail { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
-.category-card { min-height: 280px; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); display: flex; flex-direction: column; justify-content: s[...] ; }
+.category-card { min-height: 280px; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); display: flex; flex-direction: column; justify-content: s[...]
 .category-card:nth-child(1), .category-card:nth-child(4) { grid-column: span 5; }
 .category-card:nth-child(2), .category-card:nth-child(3) { grid-column: span 7; }
 .category-card:nth-child(2) { background: linear-gradient(135deg, rgba(30,144,255,.3), rgba(0,212,255,.2)); }
@@ -118,14 +111,14 @@ img, svg { display: block; max-width: 100%; }
 .category-card:hover { transform: translateY(-7px) rotate(-.5deg); box-shadow: var(--shadow); }
 .category-card h3 { position: relative; z-index: 2; margin: 0 0 8px; max-width: 440px; font: 700 clamp(1.8rem, 3vw, 3.5rem)/.96 var(--display); letter-spacing: -.055em; }
 .category-card p { position: relative; z-index: 2; max-width: 480px; margin: 0; opacity: .68; line-height: 1.6; }
-.category-count { position: relative; z-index: 2; width: 52px; height: 52px; border: 1px solid var(--accent-cyan); border-radius: 50%; display: grid; place-items: center; font: 500 .73rem var(--m[...] ; }
+.category-count { position: relative; z-index: 2; width: 52px; height: 52px; border: 1px solid var(--accent-cyan); border-radius: 50%; display: grid; place-items: center; font: 500 .73rem var(--m[...]
 .category-glyph { position: absolute; width: 170px; height: 170px; right: -35px; top: -35px; border: 2px solid var(--accent-blue); border-radius: 50%; opacity: .18; }
 .category-glyph::before, .category-glyph::after { content: ""; position: absolute; border: inherit; }
 .category-glyph::before { inset: 24%; border-radius: 50%; }
 .category-glyph::after { width: 70%; height: 2px; left: 15%; top: 50%; border: 0; background: currentColor; transform: rotate(35deg); }
 
 .featured-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 20px; }
-.agent-feature { min-height: 540px; padding: 35px; border: 1px solid var(--accent-cyan); border-radius: var(--radius); display: flex; flex-direction: column; justify-content: space-between; backg[...] ; }
+.agent-feature { min-height: 540px; padding: 35px; border: 1px solid var(--accent-cyan); border-radius: var(--radius); display: flex; flex-direction: column; justify-content: space-between; backg[...]
 .agent-feature.primary { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); color: var(--primary-blue); }
 .agent-feature h3 { position: relative; z-index: 2; max-width: 590px; margin: 0 0 18px; font: 700 clamp(2.5rem, 5vw, 5.5rem)/.88 var(--display); letter-spacing: -.07em; }
 .agent-feature p { position: relative; z-index: 2; max-width: 540px; line-height: 1.65; opacity: .72; }
