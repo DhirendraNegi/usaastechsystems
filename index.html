@@ -3,85 +3,77 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="USaaS Tech Systems is a marketplace for production-ready AI agents that work across sales, marketing, finance, operations, support, and people teams.">
-  <title>USaaS Tech Systems — AI agents that get work done</title>
-  <link rel="stylesheet" href="/styles.css">
+  <title>USAAS Agent Exchange</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>a
-  <header class="site-header">
-    <nav class="shell nav-wrap" aria-label="Main navigation">
-      <a class="brand" href="/"><img src="/usaas-logo.png" alt="USaaS logo" class="site-logo"></a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <div class="nav-links">
-        <a href="/products.html">Agent marketplace</a><a href="/services.html">For teams</a><a href="/about.html">Company</a><a class="nav-cta" href="/contact.html">Find your agent ↗</a>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="USAAS Agent Exchange home"><img src="assets/logo-usaas.jpeg" alt="USAAS Tech Systems"></a>
+      <nav aria-label="Primary navigation">
+        <a href="#marketplace">Marketplace</a><a href="#how-it-works">How it works</a><a href="#providers">For providers</a>
+      </nav>
+      <div class="persona-control" aria-label="Preview persona">
+        <span>Viewing as</span>
+        <select id="personaSelect"><option value="buyer">Buyer</option><option value="seller">Seller</option><option value="admin">Admin</option></select>
       </div>
-    </nav>
-  </header>
+    </header>
 
-  <main>
-    <section class="market-hero">
-      <div class="orbit-grid" aria-hidden="true"><span class="orbit-chip one">RESEARCHING</span><span class="orbit-chip two">TASK COMPLETE</span></div>
-      <div class="shell market-hero-grid">
-        <div class="market-hero-copy">
-          <p class="eyebrow">The agentic AI marketplace</p>
-          <h1 class="display">Put AI<br>to <em>work.</em></h1>
-          <p class="lede">Shop production-ready AI agents built for actual jobs—not novelty demos. Pick an expert, connect your tools, and put routine work on autopilot.</p>
-          <div class="hero-actions"><a class="button" href="/products.html">Browse all agents →</a><a class="button outline" href="/services.html">Build an agent team</a></div>
-        </div>
-        <div class="hero-interface reveal">
-          <div class="agent-console">
-            <div class="console-top"><span class="mono">Live agent activity</span><div class="console-lights"><i></i><i></i><i></i></div></div>
-            <div class="console-body">
-              <div class="console-line"><span>09:41:07</span><span>Atlas found 14 qualified accounts</span></div>
-              <div class="console-line"><span>09:41:12</span><span>Ledger Mind updated cash forecast</span></div>
-              <div class="console-line"><span>09:41:19</span><span>Support Sage resolved ticket #4821</span></div>
-              <div class="console-line"><span>09:41:24</span><span>Ops Conductor routed 3 approvals</span></div>
-              <div class="console-status"><span class="status-pulse"></span><div><strong>12 agents working</strong><br><small>247 tasks completed today</small></div></div>
-            </div>
+    <main id="top">
+      <section class="hero">
+        <div class="eyebrow"><span></span> THE AGENTIC COMMERCE LAYER</div>
+        <h1>Find the agent that<br><em>moves work forward.</em></h1>
+        <p>USAAS Agent Exchange connects teams with proven AI agents from specialist providers — ready to deploy, govern, and scale.</p>
+        <form id="searchForm" class="prompt-box">
+          <label for="naturalSearch">Describe what you need</label>
+          <div class="prompt-input"><span class="spark">✦</span><input id="naturalSearch" placeholder="e.g. An agent to qualify inbound leads and update our CRM" autocomplete="off"><button type="submit">Find agents <span>→</span></button></div>
+          <div class="prompt-suggestions"><button type="button" data-query="automate customer support">Customer support</button><button type="button" data-query="financial analysis and reporting">Finance reporting</button><button type="button" data-query="content marketing ideas">Marketing content</button></div>
+        </form>
+        <div class="hero-proof"><div><strong>120+</strong><span>deployable agents</span></div><div><strong>28</strong><span>verified providers</span></div><div><strong>4.9/5</strong><span>buyer rating</span></div></div>
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      </section>
+
+      <section class="marketplace" id="marketplace">
+        <div class="section-heading"><div><div class="eyebrow"><span></span> CURATED MARKETPLACE</div><h2>Explore agents by intent</h2></div><p>Every agent is reviewed for clear capabilities, controls, and a transparent commercial model.</p></div>
+        <div class="market-layout">
+          <aside class="filters">
+            <div class="filter-title">Browse categories <button id="clearFilter">Clear</button></div>
+            <div id="categoryFilters" class="category-list"></div>
+            <div class="divider"></div>
+            <label class="price-label">Monthly budget <span id="budgetValue">Any price</span></label>
+            <input type="range" id="priceRange" min="0" max="1000" step="50" value="1000">
+          </aside>
+          <div class="catalog">
+            <div class="catalog-bar"><span id="resultCount">6 agents found</span><select id="sortSelect" aria-label="Sort agents"><option value="recommended">Recommended</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div>
+            <div id="agentGrid" class="agent-grid"></div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="trust-strip" aria-hidden="true"><div class="trust-track"><span>Human-supervised</span><span>Tool connected</span><span>Enterprise ready</span><span>Ready in minutes</span><span>Hum[...]
+      <section class="role-panel buyer-panel active" data-panel="buyer">
+        <div class="role-copy"><div class="eyebrow"><span></span> FOR BUYERS</div><h2>Buy with clarity.<br>Launch with confidence.</h2><p>Compare specialist agents, understand outcomes and controls, then activate your chosen agent through one governed workspace.</p><a href="#marketplace" class="text-link">Explore the marketplace <span>→</span></a></div>
+        <div class="buyer-journey"><div class="journey-step"><b>01</b><span>Describe the job</span></div><div class="journey-line"></div><div class="journey-step"><b>02</b><span>Compare agents</span></div><div class="journey-line"></div><div class="journey-step"><b>03</b><span>Deploy securely</span></div></div>
+      </section>
 
-    <section class="section">
-      <div class="shell">
-        <div class="section-head reveal"><div><p class="eyebrow">Shop by function</p><h2 class="section-title">Every team gets<br>an extra pair of hands.</h2></div><p class="lede">Choose an agent [...]
-        <div class="category-rail">
-          <a class="category-card reveal" href="/products.html?category=Sales"><span class="category-glyph"></span><span class="category-count">02</span><div><h3>Sales & revenue</h3><p>Prospecting[...]
-          <a class="category-card reveal" href="/products.html?category=Marketing"><span class="category-glyph"></span><span class="category-count">02</span><div><h3>Marketing & content</h3><p>Cam[...]
-          <a class="category-card reveal" href="/products.html?category=Finance"><span class="category-glyph"></span><span class="category-count">02</span><div><h3>Finance & control</h3><p>Forecas[...]
-          <a class="category-card reveal" href="/products.html"><span class="category-glyph"></span><span class="category-count">06</span><div><h3>Operations, people & customer</h3><p>Workflow, re[...]
-        </div>
-      </div>
-    </section>
+      <section class="role-panel seller-panel" data-panel="seller" id="providers">
+        <div class="role-copy"><div class="eyebrow"><span></span> PROVIDER STUDIO</div><h2>Turn your agent into<br>a trusted product.</h2><p>Publish capabilities, define usage-based pricing, and reach teams looking for exactly the workflow you solve.</p><button class="primary-button" id="openListing">List an agent <span>→</span></button></div>
+        <div class="seller-metrics"><div><span>Published agents</span><strong>04</strong><small>+1 this month</small></div><div><span>Monthly earnings</span><strong>$8,420</strong><small>↑ 18% vs. last month</small></div><div><span>Buyer satisfaction</span><strong>4.8</strong><small>Across 126 reviews</small></div></div>
+      </section>
 
-    <section class="section dark">
-      <div class="shell">
-        <div class="section-head reveal"><div><p class="eyebrow">Popular this week</p><h2 class="section-title">Agents earning<br>their keep.</h2></div><p class="lede">The marketplace favorites te[...]
-        <div class="featured-grid">
-          <article class="agent-feature primary reveal"><span class="bot-glyph"></span><div><div class="agent-meta"><span>Sales</span><span>Prospecting</span><span>★ 4.9</span></div></div><div><[...]
-          <article class="agent-feature reveal"><span class="bot-glyph"></span><div><div class="agent-meta"><span>Customer</span><span>Support</span><span>★ 4.9</span></div></div><div><h3>Suppor[...]
-        </div>
-      </div>
-    </section>
+      <section class="role-panel admin-panel" data-panel="admin">
+        <div class="role-copy"><div class="eyebrow"><span></span> MARKETPLACE COMMAND</div><h2>Govern a marketplace<br>that earns trust.</h2><p>Review new submissions, oversee provider quality, and keep commercial and safety standards consistent across the ecosystem.</p><button class="primary-button" id="reviewQueue">Review queue <span>→</span></button></div>
+        <div class="admin-queue"><div class="queue-title">Approval queue <span>12 pending</span></div><div class="queue-item"><i></i><div><b>Contract Insight Agent</b><small>LegalWorks AI · Legal</small></div><button>Review</button></div><div class="queue-item"><i></i><div><b>Churn Signal Monitor</b><small>MetricLeaf · Customer success</small></div><button>Review</button></div><div class="queue-item"><i></i><div><b>Invoice Reconciliation</b><small>LedgerLoop · Finance</small></div><button>Review</button></div></div>
+      </section>
 
-    <section class="section">
-      <div class="shell">
-        <div class="section-head reveal"><div><p class="eyebrow">From cart to colleague</p><h2 class="section-title">Working before<br>your next meeting.</h2></div><p class="lede">Every agent come[...]
-        <div class="how-grid">
-          <article class="how-step reveal"><strong>01 / PICK</strong><h3>Choose the job</h3><p>Browse by team, task, tools, price, and support level.</p></article>
-          <article class="how-step reveal"><strong>02 / CONNECT</strong><h3>Grant the right access</h3><p>Connect only the systems and information the agent needs.</p></article>
-          <article class="how-step reveal"><strong>03 / TEACH</strong><h3>Set rules and context</h3><p>Add your process, policies, examples, and approval points.</p></article>
-          <article class="how-step reveal"><strong>04 / RUN</strong><h3>Watch work move</h3><p>Review activity, approve key actions, and improve over time.</p></article>
-        </div>
-        <div class="cta-panel reveal"><h2>Your next best hire might be software.</h2><a class="button" href="/products.html">Shop the marketplace →</a></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer"><div class="shell"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/"><span class="brand-mark"></span><span>USaaS <small>TECH SYSTEMS</small>[/...]
-  <script src="/script.js"></script>
+      <section class="architecture" id="how-it-works"><div class="section-heading"><div><div class="eyebrow"><span></span> BUILT FOR SCALE</div><h2>A marketplace with a clear foundation</h2></div></div><div class="tier-diagram"><div class="tier"><span>01</span><div><b>Experience layer</b><p>Buyer discovery, provider studio, and admin governance in one responsive interface.</p></div></div><div class="tier-arrow">↓</div><div class="tier"><span>02</span><div><b>Application layer</b><p>Search orchestration, listings, pricing, identity, and workflow services exposed through APIs.</p></div></div><div class="tier-arrow">↓</div><div class="tier"><span>03</span><div><b>Data layer</b><p>Agent catalog, category taxonomy, provider records, reviews, and audit-ready transaction data.</p></div></div></div></section>
+    </main>
+    <footer><div>© 2026 USAAS Tech Systems</div><div>Unified Smart AI Automation Systems</div></footer>
+  </div>
+  <dialog id="listingDialog"><form method="dialog"><button class="dialog-close" value="cancel" aria-label="Close">×</button><div class="eyebrow"><span></span> PROVIDER STUDIO</div><h2>Start an agent listing</h2><p>Tell buyers what your agent accomplishes.</p><label>Agent name<input placeholder="e.g. Revenue Signal Agent"></label><label>Category<select><option>Sales & Revenue</option><option>Customer Experience</option><option>Finance & Operations</option><option>Marketing & Content</option></select></label><label>Starting monthly price<input type="number" placeholder="299"></label><button class="primary-button" value="submit">Save draft <span>→</span></button></form></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="data/agents.js"></script><script src="api/marketplace-api.js"></script><script src="app.js"></script>
 </body>
 </html>
