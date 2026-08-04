@@ -877,7 +877,15 @@ dialog select {
   }
 
   .brand {
-    width: 120px;
+    width: 130px;
+    height: 48px;
+  }
+
+  .brand img {
+    width: 148px;
+    height: 100px;
+    top: -20px;
+    left: -4px;
   }
 
   .hero h1 {
